@@ -1,7 +1,7 @@
 # brink renovent excellent + Raspberry Pi + ebusd</br>
 <p>sources
 <ul>
-	<li><a href="https://forum.fhem.de/index.php/topic,84636.0.html">Raspberry pi extension board</a><img src="https://forum.fhem.de/index.php?action=dlattach;topic=84636.0;attach=96686;image"></li>
+	<li><a href="https://forum.fhem.de/index.php/topic,84636.0.html">Raspberry pi extension board</a></li>
 	<li>https://github.com/john30/ebusd</li>
 	<li>https://github.com/eBUS/ttyebus</li>
 	<li>https://github.com/timd93/ebusd-config-brink-renovent-excellent-300</li>
