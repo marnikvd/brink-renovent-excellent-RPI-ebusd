@@ -9,7 +9,7 @@ The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</
 	<li>https://github.com/timd93/ebusd-config-brink-renovent-excellent-300</li>
 	<li>mosquitto</li>
 	<li>node.js</li>
-	<li>android mqtt dash
+	<li><a href="https://play.google.com/store/apps/details?id=net.routix.mqttdash&hl=nl">android mqtt dash</a>
 	<ul>
 		<li>button 1 (handled by setvent_1.js)
 		<ul>
