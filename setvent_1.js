@@ -2,9 +2,10 @@
 // https://blog.risingstack.com/getting-started-with-nodejs-and-mqtt/
 
 /*
-als daemon uitvoeren met deze commando's
-user@host:~/brink $ node setvent_1.js </dev/null >/dev/null 2>&1 & disown
+execute as daemon with following command
+ $ node setvent_1.js </dev/null >/dev/null 2>&1 & disown
 */
+
 
 const mqtt = require('/usr/lib/node_modules/mqtt')
 const client = mqtt.connect('mqtt://192.168.0.92:1883')
