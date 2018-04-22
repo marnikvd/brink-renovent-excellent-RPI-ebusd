@@ -9,7 +9,7 @@
 	<li>node.js</li>
 	<li>android mqtt dash
 	<ul>
-		<li>button 1
+		<li>button 1 (handled by setvent_1.js)
 		<ul>
 			<li>Topic = renovent</li>
 			<li>Options =
@@ -20,7 +20,7 @@
 				<li>Payload = Intensive</li>
 			</ul></li>    
 		</ul></li>
-		<li>button 2
+		<li>button 2 (<a href="https://github.com/john30/ebusd/wiki/3.3.-MQTT-client">handled by ebusd</a>)
 		<ul>
 			<li>Topic = ebusd/kwl/FanSpeed</li>
 			<li>JSON path = $.0.value</li>
