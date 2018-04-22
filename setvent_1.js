@@ -3,7 +3,7 @@
 
 /*
 als daemon uitvoeren met deze commando's
-pi@kat5pi1:~/brink $ node setvent_1.js </dev/null >/dev/null 2>&1 & disown
+user@host:~/brink $ node setvent_1.js </dev/null >/dev/null 2>&1 & disown
 */
 
 const mqtt = require('/usr/lib/node_modules/mqtt')
