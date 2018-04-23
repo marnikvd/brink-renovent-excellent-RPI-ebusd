@@ -49,7 +49,7 @@ vent_read() {
 			echo "attempt "$retry" failed"
 		done
 		# read temperatures to update mqtt data each quarter of an hour
-		if [ $(($(date +%M)%15)) -eq 7 ]; then
+		if [ $(($(date +%M)%$TFREQ)) -eq 7 ]; then
 			OUTTEMP="$(ebusctl read -f OutsideTemperature)"
 			INTEMP="$(ebusctl read -f InsideTemperature)"
 		fi
