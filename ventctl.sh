@@ -10,6 +10,8 @@ E_BADARGS=85   # Wrong number of arguments passed to script.
 E_UNKNOWN=86   # Unknown option.
 
 PIPE="vent_pipe"
+MAXATTEMPT=3
+TFREQ=15 # frequentie of reading temperatures
 
 # Function vent_read() is a daemon function
 # It is called with : 
@@ -29,9 +31,7 @@ vent_read() {
 
 	trap "rm -f $PIPE" EXIT
 
-	if [[ ! -p $PIPE ]]; then
-		mkfifo $PIPE
-	fi
+	mkfifo $PIPE
 
 	read msg <$PIPE # wait for first message
 
@@ -39,8 +39,20 @@ vent_read() {
 		if [[ "$msg" == 'stop' ]]; then
 			exit 0
 		fi
-		ebusctl w -c kwl FanSpeed $msg >/dev/null
-
+		# do up to 3 attempts in case of bus error
+		retry=0
+		while [ $retry -lt $MAXATTEMPT ]; do
+			response=$(ebusctl w -c kwl FanSpeed $msg)
+			# https://stackoverflow.com/questions/13781216/meaning-of-too-many-arguments-error-from-if-square-brackets
+			test "$response" == "done" && break
+			((retry++))
+			echo "attempt "$retry" failed"
+		done
+		# read temperatures to update mqtt data each quarter of an hour
+		if [ $(($(date +%M)%15)) -eq 7 ]; then
+			OUTTEMP="$(ebusctl read -f OutsideTemperature)"
+			INTEMP="$(ebusctl read -f InsideTemperature)"
+		fi
 		# https://stackoverflow.com/questions/6448632/read-not-timing-out-when-reading-from-pipe-in-bash
 		if read -t 60 <>$PIPE ; then
 			msg="$REPLY"
