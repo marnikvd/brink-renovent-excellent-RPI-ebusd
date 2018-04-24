@@ -11,7 +11,6 @@ E_UNKNOWN=86   # Unknown option.
 
 PIPE="vent_pipe"
 MAXATTEMPT=3
-TFREQ=15 # frequentie of reading temperatures
 
 # Function vent_read() is a daemon function
 # It is called with : 
@@ -48,11 +47,6 @@ vent_read() {
 			((retry++))
 			echo "attempt "$retry" failed"
 		done
-		# read temperatures to update mqtt data each quarter of an hour
-		if [ $(($(date +%M)%$TFREQ)) -eq 7 ]; then
-			OUTTEMP="$(ebusctl read -f OutsideTemperature)"
-			INTEMP="$(ebusctl read -f InsideTemperature)"
-		fi
 		# https://stackoverflow.com/questions/6448632/read-not-timing-out-when-reading-from-pipe-in-bash
 		if read -t 60 <>$PIPE ; then
 			msg="$REPLY"
