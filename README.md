@@ -14,7 +14,9 @@ The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</
 	<ul>
 		<li>button 1 (handled by setvent_1.js)
 		<ul>
-			<li>Topic = renovent</li>
+			<li>Topic (sub) = ebusd/kwl/FanSpeed</li>
+			<li>publishing enabled</li>
+			<li>Topic (pub) = renovent</li>
 			<li>Options =
 			<ul>
 				<li>Payload = Minimal</li>
@@ -22,10 +24,6 @@ The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</
 				<li>Payload = Normal</li>
 				<li>Payload = Intensive</li>
 			</ul></li>    
-		</ul></li>
-		<li>button 2 (<a href="https://github.com/john30/ebusd/wiki/3.3.-MQTT-client">handled by ebusd</a>)
-		<ul>
-			<li>Topic = ebusd/kwl/FanSpeed</li>
 		</ul></li>
 	</ul></li>
 </ul></p>
