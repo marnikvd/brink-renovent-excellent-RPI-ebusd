@@ -38,15 +38,7 @@ vent_read() {
 		if [[ "$msg" == 'stop' ]]; then
 			exit 0
 		fi
-		# do up to 3 attempts in case of bus error
-		retry=0
-		while [ $retry -lt $MAXATTEMPT ]; do
-			response=$(ebusctl w -c kwl FanSpeed $msg)
-			# https://stackoverflow.com/questions/13781216/meaning-of-too-many-arguments-error-from-if-square-brackets
-			test "$response" == "done" && break
-			((retry++))
-			echo "attempt "$retry" failed"
-		done
+		ebusctl w -c kwl FanSpeed $msg
 		# https://stackoverflow.com/questions/6448632/read-not-timing-out-when-reading-from-pipe-in-bash
 		if read -t 60 <>$PIPE ; then
 			msg="$REPLY"
