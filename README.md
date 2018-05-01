@@ -10,9 +10,10 @@ The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</
 	<li>https://github.com/timd93/ebusd-config-brink-renovent-excellent-300</li>
 	<li>mosquitto</li>
 	<li>node.js</li>
+	<li>crontab : <code>0,15,30,45 * * * * ~/ebusd/contrib/scripts/readall.sh -c kwl InsideTemperature</code></li>
 	<li><a href="https://play.google.com/store/apps/details?id=net.routix.mqttdash&hl=nl">android mqtt dash</a>
 	<ul>
-		<li>button 1 (handled by setvent_1.js)
+		<li>button 1
 		<ul>
 			<li>Topic (sub) = ebusd/kwl/FanSpeed</li>
 			<li>publishing enabled</li>
@@ -24,6 +25,10 @@ The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</
 				<li>Payload = Normal</li>
 				<li>Payload = Intensive</li>
 			</ul></li>    
+		</ul></li>
+		<li>button 2
+		<ul>
+			<li>Topic (sub) = ebusd/kwl/InsideTemperature</li>
 		</ul></li>
 	</ul></li>
 </ul></p>
