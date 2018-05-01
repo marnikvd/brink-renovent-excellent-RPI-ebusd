@@ -1,10 +1,11 @@
 # brink renovent excellent + Raspberry Pi + ebusd</br>
-<p>The <a href="https://www.thermad-brink.be/nl-BE/renovent-excellent/9/25/">heat recovery appliance</a> needs to receive a send and keep alive command from the master on the ebus link in order to maintain its ventilation flow rate.  The script <ins>ventctl.sh</ins> can be used to do this from the command line.<br />
+<p>This <a href="https://www.thermad-brink.be/nl-BE/renovent-excellent/9/25/">heat recovery appliance</a> needs to receive every minute a send and keep alive command from the master on the ebus link in order to maintain its ventilation flow rate.  The script <ins>ventctl.sh</ins> can be used to do this from the command line.<br />
 The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</p>
 <p>sources
 <ul>
 	<li><a href="https://forum.fhem.de/index.php/topic,84636.0.html">Raspberry pi extension board</a></li>
-	<li>https://github.com/john30/ebusd</li>
+	<li>https://github.com/john30/ebusd<br />
+	/usr/bin/ebusd -d /dev/ttyebus -p 8888 -l /var/log/ebusd.log --scanconfig --httpport=8080 --mqttport=1883 --mqtthost=localhost --sendretries=5</li>
 	<li>https://github.com/eBUS/ttyebus</li>
 	<li>https://github.com/timd93/ebusd-config-brink-renovent-excellent-300</li>
 	<li>mosquitto</li>
@@ -25,7 +26,6 @@ The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</
 		<li>button 2 (<a href="https://github.com/john30/ebusd/wiki/3.3.-MQTT-client">handled by ebusd</a>)
 		<ul>
 			<li>Topic = ebusd/kwl/FanSpeed</li>
-			<li>JSON path = $.0.value</li>
 		</ul></li>
 	</ul></li>
 </ul></p>
