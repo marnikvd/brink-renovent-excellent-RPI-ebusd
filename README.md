@@ -1,4 +1,6 @@
 # brink renovent excellent + Raspberry Pi + ebusd</br>
+> [!NOTE]
+> This repository is out of date. I now use node-red and a python script.
 <p>This <a href="https://www.thermad-brink.be/nl-BE/renovent-excellent/9/25/">heat recovery appliance</a> needs to receive every minute a send and keep alive command from the master on the ebus link in order to maintain its ventilation flow rate.  The script <ins>ventctl.sh</ins> can be used to do this from the command line.<br />
 The node.js script <ins>setvent_1.js</ins> exposes this functionality to mqtt.</p>
 <p>sources
